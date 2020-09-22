@@ -1,0 +1,140 @@
+body
+{
+    font:               22px helvetica;
+    background-color:   #a0a0a0;
+}
+#topFrame
+{
+    position:           absolute;
+    display:            block;
+    height:             100%;
+    width:              100%;
+}
+#innerFrame
+{
+    position:           absolute;
+    top:                20px;
+    left:               10px;
+    display:            block;
+}
+#tblData
+{
+    height:             750px;
+    width:              750px;
+    border:             #000000 solid 2px;
+    border-radius:      5px;
+    border-spacing:     0px;
+    white-space:        nowrap;
+}
+#dataSource
+{
+    font:               normal 22px helvetica;
+    margin:             auto;
+    padding:            5px;
+    text-align:         center;
+}
+.dsClass
+{
+    font:               bold 22px helvetica;
+    border:             #aeaeae solid 1px;
+    width:              50%;
+    text-align:         center;
+    padding:            5px;
+}
+.rowClass
+{
+    padding:            0px;
+}
+.headerClass,
+.colHeadClass
+{
+    width:              20%;
+    padding:            5px;
+    border:             #aeaeae solid 1px;
+    text-align:         center;
+    font:               bold 22px helvetica;
+}
+.labelClass
+{
+    font:               bold 22px helvetica;
+    width:              20%;
+    padding:            5px;
+    border:             #aeaeae solid 1px;
+    text-align:         center;
+}
+.spacerClass
+{
+    width:              20%;
+    padding:            5px;
+    border:             #aeaeae solid 1px;
+    text-align:         center;
+}
+#col-0-0
+{
+    font:               bold 24px helvetica;
+    width:              100%;
+    text-align:         center;
+}
+.logTdClass
+{
+    padding:            0px;
+    overflow:           hidden;
+    vertical-align:     top;
+    height:             120px;      /*    calc(100% - 2px);*/
+}
+#theMap
+{
+    height:             750px;
+    width:              500px;
+}
+#logContainer
+{
+    position:           relative;
+    height:             120px;      /*    calc(100% - 2px);*/
+    width:              calc(100% - 2px);
+    top:                0px;
+    padding:            1px;
+    overflow-x:         auto;
+    overflow-y:         auto;
+    vertical-align:     top;
+}
+#logConsole
+{
+    position:           relative;
+    font-size:          45%;
+    font-family:        Courier New, Courier New, Helvetica, Verdana, sans-serif;
+    padding:            1px;
+    vertical-align:     top;
+    background-color:   #FAFAFA;
+}
+
+.text-danger
+{
+    color:              #f93332;
+    background-color:   #ffefef;
+}
+
+.text-debug
+{
+    color: #3170af;
+    background-color:   #d9edff;
+}
+
+.text-warning
+{
+    color:              #000000;
+    background-color:   yellow;
+}
+
+.text-info
+{
+    color:              #3676cd;
+    background-color:   #dff0d8;
+}
+
+.text-success
+{
+    color:              #000000;
+    background-color:   #ffffff;
+}
+

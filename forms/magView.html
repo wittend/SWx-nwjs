@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>i2c-rm3100 display</title>
+        <meta charset='utf-8' />
+        <!-- Console-log-html -->
+        <script type="application/javascript" src="js/console-log-html.min.js"></script>
+        <style>
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', function()
+            {
+                let wsSrc = 'ws://' + this.location.host + '/';
+                let ws = new WebSocket('ws://' + this.location.host + '/');
+
+                ConsoleLogHTML.connect(document.getElementById("logConsole"), undefined, false, undefined, false);        // Redirect log messages
+
+                ws.onopen = function() 
+                {
+                    document.getElementById('dataSource').textContent = wsSrc;
+                    document.getElementById('tblData').style.backgroundColor = '#cfc';
+                    //document.body.style.backgroundColor = '#cfc';
+                };
+                ws.onclose = function() 
+                {
+                    document.getElementById('dataSource').textContent = 'Closed';
+                    document.getElementById('tblData').style.backgroundColor = null;
+                    //document.body.style.backgroundColor = null;
+                };
+                ws.onmessage = function(event) 
+                {
+                    let res = event.data;
+                    let resObj = JSON.parse(res);
+                    
+                    let dObj = {'ts': '','x': '', 'y': '', 'z': '', 'x_ut': '', 'y_ut': '', 'z_ut': '', 'x_cc': '', 'y_cc': '', 'z_c': '', 'x_gain': '', 'y_gain': '', 'z_gain': '', 'ctemp': ''};
+                    
+                    let d = new Date();
+                    dObj.ts = d.toUTCString();
+                    
+                    dObj.temperature = resObj.ctemp;
+                    
+                    console.log('"TS": {' + dObj.ts + '}, ' + res);
+                    dObj.x = resObj.x;
+                    dObj.y = resObj.y;
+                    dObj.z = resObj.z;
+
+                    dObj.x_ut = resObj.x_ut;
+                    dObj.y_ut = resObj.y_ut;
+                    dObj.z_ut = resObj.z_ut;
+
+                    dObj.x_cc = resObj.x_cc;
+                    dObj.y_cc = resObj.y_cc;
+                    dObj.z_cc = resObj.z_cc;
+
+                    dObj.x_gain = resObj.x_gain;
+                    dObj.y_gain = resObj.y_gain;
+                    dObj.z_gain = resObj.z_gain;
+
+                    document.getElementById('ctemp').textContent = dObj.temperature;
+
+                    document.getElementById('xRaw').textContent = dObj.x;
+                    document.getElementById('yRaw').textContent = dObj.y;
+                    document.getElementById('zRaw').textContent = dObj.z;
+                    
+                    document.getElementById('x_uT').textContent = dObj.x_ut;
+                    document.getElementById('y_uT').textContent = dObj.y_ut;
+                    document.getElementById('z_uT').textContent = dObj.z_ut;
+                    
+                    document.getElementById('x_CC').textContent = dObj.x_cc;
+                    document.getElementById('y_CC').textContent = dObj.y_cc;
+                    document.getElementById('z_CC').textContent = dObj.z_cc;
+
+                    document.getElementById('xGain').textContent = dObj.x_gain;
+                    document.getElementById('yGain').textContent = dObj.y_gain;
+                    document.getElementById('zGain').textContent = dObj.z_gain;
+                    
+                };
+            });
+        </script>
+    </head>
+    <body>
+        <div id='topFrame'>
+            <div id='innerFrame'>
+                <table id='tblApp'>
+                    <tr id='ta-row-0' class='rowClass'>
+                        <td id='ta-col-0-2' class='noClass'>
+                            <iframe width="500" height="300" src="https://api.maptiler.com/maps/9ffb6109-ae2a-496f-979f-a987968f0028/?key=cQKpvyiVDqXo9rQfiwJu#1.0/10.83331/-81.56250"></iframe>
+                        </td> 
+                        <td id='ta-col-0-0' class='noClass'>
+                            <table id='tblData'>
+            
+                                <tr id='row-0' class='rowClass'>
+                                    <td id='col-0-0' class='headerClass' colspan='5'>
+                                        Magnetometer Values 
+                                    </td> 
+                                </tr>
+            
+                                <tr id='row-1' class='rowClass'>
+                                    <td id='col-1-0' class='dsClass' colspan='1'>
+                                        Data Source 
+                                    </td> 
+                                    <td id='col-1-1' class='dsClass' colspan='2'>
+                                        <div id='dataSource'></div>
+                                    </td> 
+                                    <td id='col-1-3' class='dsClass' colspan='1'>
+                                        Temp.:
+                                    </td> 
+                                    <td id='col-1-4' class='dsClass' colspan='1'>
+                                        <div id='temperature'></div>
+                                    </td> 
+                                </tr>
+            
+                                <tr id='row-2' class='rowClass'>
+                                    <td id='col-2-0' class='spacerClass'>
+                                       &nbsp;
+                                    </td> 
+                                    <td id='col-2-1' class='colHeadClass'>
+                                        Raw
+                                    </td> 
+                                    <td id='col-2-2' class='colHeadClass'>
+                                        Cycle Count
+                                    </td> 
+                                    <td id='col-2-3' class='colHeadClass'>
+                                        Gain
+                                    </td> 
+                                    <td id='col-2-4' class='colHeadClass'>
+                                        uTesla 
+                                    </td> 
+                                    <td id='col-2-5' class='spacerClass'>
+                                       &nbsp;
+                                    </td> 
+                                </tr>
+                                
+                                <tr id='row-3' class='rowClass'>
+                                    <td id='col-2-0' class='labelClass'>
+                                        X 
+                                    </td> 
+                                    <td id='col-3-1' class='spacerClass'>
+                                        <div id="xRaw"></div >
+                                    </td> 
+                                    <td id='col-3-2' class='spacerClass'>
+                                        <div id="x_CC"></div >
+                                    </td> 
+                                    <td id='col-3-3' class='spacerClass'>
+                                        <div id="xGain"></div >
+                                    </td> 
+                                    <td id='col-3-4' class='spacerClass'>
+                                        <div id="x_uT"></div >
+                                    </td> 
+                                    <td id='col-3-5' class='spacerClass'>
+                                       &nbsp;
+                                    </td> 
+                                </tr>
+            
+                                <tr id='row-4' class='rowClass'>
+                                    <td id='col-4-0' class='labelClass'>
+                                        Y 
+                                    </td> 
+                                    <td id='col-4-1' class='spacerClass'>
+                                        <div id="yRaw"></div >
+                                    </td> 
+                                    <td id='col-4-2' class='spacerClass'>
+                                        <div id="y_CC"></div >
+                                    </td> 
+                                    <td id='col-4-3' class='spacerClass'>
+                                        <div id="yGain"></div >
+                                    </td> 
+                                    <td id='col-4-4' class='spacerClass'>
+                                        <div id="y_uT"></div >
+                                    </td> 
+                                    <td id='col-4-5' class='spacerClass'>
+                                       &nbsp;
+                                    </td> 
+                                </tr>
+                                <tr id='row-5' class='rowClass'>
+                                    <td id='col-5-0' class='labelClass'>
+                                        Z 
+                                    </td> 
+                                    <td id='col-5-1' class='spacerClass'>
+                                        <div id="zRaw"></div >
+                                    </td> 
+                                    <td id='col-5-2' class='spacerClass'>
+                                        <div id="z_CC"></div >
+                                    </td> 
+                                    <td id='col-5-3' class='spacerClass'>
+                                        <div id="zGain"></div >
+                                    </td> 
+                                    <td id='col-5-4' class='spacerClass'>
+                                        <div id="z_uT"></div >
+                                    </td> 
+                                    <td id='col-5-5' class='spacerClass'>
+                                       &nbsp;
+                                    </td> 
+                                </tr>
+            
+                                <tr id='row-6' class='rowClass'>
+                                    <td id='col-6-0' class='logTdClass' colspan='5'>
+                                        <div id='logContainer' class='logConsoleClass'>
+                                            <ul id='logConsole'></ul>
+                                        </div>
+                                    </td> 
+                                </tr>
+                               
+                            </table>
+                        </td> 
+<!--                        <td id='ta-col-0-2' class='noClass'>
+                            <iframe id='theMap' src="https://maps.tilehosting.com/styles/basic/?key=cQKpvyiVDqXo9rQfiwJu"></iframe>
+                        </td> 
+-->                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

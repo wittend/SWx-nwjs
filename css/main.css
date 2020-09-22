@@ -1,0 +1,107 @@
+/*===================================================
+// main.css
+//
+// Code for the:   schnoz-2 project.
+// Created:        02/21/2018
+// Copyright (c):  David M. Wittend II
+//===================================================*/
+body,
+html
+{
+    /*font-size:          75%;*/
+    font-family:        "Trebuchet MS", "Arial", "Helvetica", "Verdana", "sans-serif";
+    height:             100%;
+    width:              100%;
+    padding:            0px;
+    margin:             0;
+}
+/*
+#col-left,
+#col-right
+{
+    text-align:         left;
+    background-color:   #f0f0f0;
+    overflow:           auto;
+}
+#col-center
+{
+    padding:            0px;
+    overflow:           auto;
+}
+#left-upper
+{
+    position:           relative;
+    overflow:           auto;
+}
+#left-lower
+{
+    font-size:          75%;
+    position:           relative;
+    overflow:           auto;
+}
+#interaction-pane
+{
+    text-align:         left;
+    background-color:   #ffffff;
+    padding:            0px;
+    overflow-x:         auto;
+    overflow-y:         auto;
+}
+#console-pane
+{
+    text-align:         left;
+    background-color:   #ffffff;
+    position:           relative;
+    padding-top:        0px;
+    padding-left:       7px;
+    padding-bottom:     7px;
+    padding-right:      7px;
+    width:              calc(100%);
+    font-size:          75%;
+    font-family:        "Courier New", "Courier New", "Helvetica", "Verdana", "sans-serif";
+    overflow-x:         auto;
+    overflow-y:         auto;
+}
+.textLbl
+{
+    font-size:          85%;
+}
+#btnTable
+{
+    text-align:         center;
+}
+.inputMeasureClass
+{
+    width:              55px;
+}
+.buttonInputClass
+{
+    width:               75px;
+    height:              35px;
+}
+.text-danger
+{
+    color:              #f93332;
+    background-color:   #ffefef;
+}
+.text-debug
+{
+    color:              #3170af;
+    background-color:   #d9edff;
+}
+.text-warning
+{
+    color:              #000000;
+    background-color:   yellow;
+}
+.text-info
+{
+    color:              #3676cd;
+    background-color:   #dff0d8;
+}
+.text-success
+{
+    color:              #000000;
+    background-color:   #ffffff;
+}
+*/

@@ -1,0 +1,29 @@
+{
+  "name": "SWx-nwjs",
+  "version": "0.1.0",
+  "description": "A minimalist nw.js skeleton",
+  "main": "main.html",
+  "scripts": {
+    "test": "nw ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wittend/SWx-nwjs.git"
+  },
+  "window": {
+    "nwjs": true,
+    "id": "main-topwindow",
+    "icon": "res/0622-pulse2.png",
+    "min_width": 950,
+    "min_height": 600,
+    "resizeable": true
+  },
+  "keywords": [
+  ],
+  "author": "David M. Witten II",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wittend/SWx-nwjs/issues"
+  },
+  "homepage": "https://github.com/wittend/SWx-nwjs#readme"
+}
